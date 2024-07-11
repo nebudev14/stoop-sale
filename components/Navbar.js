@@ -1,7 +1,8 @@
 const Navbar = () => {
   return (
-    <div>
-      NAV
+    <div className="flex items-center font-old">
+      <h1></h1>
+      
     </div>
   );
 }

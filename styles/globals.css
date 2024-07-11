@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: "Kyiv";
+  src: url("./fonts/Dmitry\ Rastvortsev\ -\ KyivType\ Sans\ Regular3.otf");
+}
+
+@font-face {
+  font-family: "Old";
+  src: url("./fonts/OldStandardTT-Regular.ttf");
+}
