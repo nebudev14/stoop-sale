@@ -51,12 +51,21 @@ model Item {
   images     String[]
   inventory  Invetory? @relation(fields: [invetoryId], references: [id])
   invetoryId String?
+  category   Category
 }
 
 enum Price {
   LOW
   MEDIUM
   HIGH
+}
+
+enum Category {
+  SHOES
+  CLOTHES
+  TCHOTCHKES
+  GOODS
+  MISC
 }
 
 model Session {
