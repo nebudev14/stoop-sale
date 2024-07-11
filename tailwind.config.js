@@ -12,17 +12,17 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        'stoop-green': '#71816D',
+        'stoop-brown': '#C9B79C',
+        'stoop-tan': '#F1E0C5',
+      }
     },
     fontFamily: {
       kyiv: ["Kyiv", "sans-serif"],
       old: ["Old", "sans-serif"],
       miama: ["Miama", "sans-serif"]
     },
-    colors: {
-      'stoop-green': '#71816D',
-      'stoop-brown': '#C9B79C',
-      'stoop-tan': '#F1E0C5',
-    }
   },
   plugins: [],
 };

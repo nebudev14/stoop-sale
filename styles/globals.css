@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 
+@layer components {
+  .catalog-boxes {
+    @apply w-56 h-56 bg-slate-400 rounded-[18px]
+  }
+}
+
 @font-face {
   font-family: "Kyiv";
   src: url("./fonts/Dmitry\ Rastvortsev\ -\ KyivType\ Sans\ Regular3.otf");
@@ -17,3 +23,4 @@
   font-family: "Miama";
   src: url("./fonts/Miama.ttf");
 }
+
