@@ -4,15 +4,21 @@ import { signOut } from "next-auth/react";
 import { FaSignOutAlt } from "react-icons/fa";
 import { MdHome } from "react-icons/md";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import AddItem from "@/components/modals/AddItemModal";
 
 export default function Dashboard() {
   const router = useRouter();
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div
-      className="min-h-screen flex-col justify-between p-16"
+      className="flex-col justify-between min-h-screen p-16"
     >
-    <Navbar />
+      <Navbar />
+
+      <AddItem isOpen={isOpen} setIsOpen={setIsOpen} />
 
       <Protected>
         <div className="p-16">
@@ -29,7 +35,7 @@ export default function Dashboard() {
             </div>
             <div className="flex items-center w-full p-12 font-kyiv">
               <h1 className="mr-auto text-xl">Items (0)</h1>
-              <button className="px-2 py-1 ml-auto text-white rounded-lg bg-stoop-green">Add</button>
+              <button className="px-2 py-1 ml-auto text-white rounded-lg bg-stoop-green" onClick={() => setIsOpen(true)}>Add</button>
             </div>
           </div>
         </div>
