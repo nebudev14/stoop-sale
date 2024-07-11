@@ -8,10 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <main
-      className={` min-h-screen flex-col justify-between p-16 ${inter.className}`}
+      className={`min-h-screen flex-col justify-between p-16 ${inter.className}`}
     >
       <Navbar className="flex items-center"/>
-      <Catalog />
       <Catalog />
     </main>
   );
