@@ -151,7 +151,6 @@ const AddItem = ({ isOpen, setIsOpen }) => {
 
             /* Send request to inventory data endpoint */
 
-
             await fetch(`/api/inventory/`, {
               method: "post",
               headers: {
@@ -164,6 +163,7 @@ const AddItem = ({ isOpen, setIsOpen }) => {
                 blur: blur,
                 category: category,
                 price: price,
+                imageCount: files.length
               }),
             })
             /* Send request to image upload endpoint */

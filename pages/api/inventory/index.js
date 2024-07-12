@@ -3,7 +3,6 @@ import { PrismaClient } from "@prisma/client";
 
 /* API Endpoint for adding a new item to the Stoop Sale inventory. */
 
-
 export default async function handler(req, res) {
   const body = req.body;
   const prisma = new PrismaClient();
@@ -22,7 +21,8 @@ export default async function handler(req, res) {
           desc: body.desc,
           price: body.price,
           category: body.category,
-          private: body.blur
+          private: body.blur,
+          imageCount: body.imageCount
         }
       }
     }
