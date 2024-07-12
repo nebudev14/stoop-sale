@@ -5,15 +5,69 @@ import Catalog from "@/components/Catalog";
 import EnvScroll from "@/components/EnvScroll";
 import { motion, Varients, useScroll, useTransform } from "framer-motion";
 import { PrismaClient } from "@prisma/client";
+import { useState } from "react";
+import React, { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import GoogleMapComponent from '@/components/GoogleMap';
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props) {
   const { inventory } = props;
-  console.log(inventory)
+  const [isOpen, setIsOpen] = useState(false); // Tracks state of map modal
+
   return (
     <>
+      {/* Maps Modal */}
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-50"
+          onClose={() => {
+            setIsOpen(false);
+          }}
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex items-center justify-center min-h-full p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full max-w-md overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                  <div className="w-full max-w-md overflow-hidden bg-white rounded-lg shadow-lg">
+                    <GoogleMapComponent />
+                    <div className="p-4">
+                      <h1 className="mb-2 text-xl font-bold underline font-kyiv">Chelsea & Lil's Stoop Sale</h1>
+                      <p className="mb-2 text-gray-600">
+                        <span className="inline-block mr-1">📍</span>
+                        Court Street & 2nd Pl, Brooklyn</p>
+                    </div>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
+
+
       <div className="relative w-screen h-screen md:h-screen center-text">
         <div className="absolute -z-150">
           <video className="object-fill w-screen h-screen md:object-cover" autoPlay muted loop>
@@ -65,7 +119,7 @@ export default function Home(props) {
             }}>
             <button className="px-12 py-2 text-6xl text-white rounded-md bg-stoop-green font-old hover:bg-[#9BAC97] hover:ring-green-900 mb-2">RSVP</button>
             <div className="p-2 bg-white rounded-xl font-old">
-              <span>&#128205; Carroll Gardens (Court Street & 2nd Pl, Brooklyn)</span>
+              <span onClick={() => setIsOpen(true)} className="underline duration-200 hover:cursor-pointer hover:text-stoop-green">&#128205; Carroll Gardens (Court Street & 2nd Pl, Brooklyn)</span>
               <br />
               <span>&#128198; July 29, 2024 @ 12 P.M.</span>
             </div>
