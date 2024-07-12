@@ -1,14 +1,9 @@
 require('dotenv').config()
 
-import prisma from "@/lib/db";
 import { Category, Price } from "@prisma/client";
-import { z } from "zod";
 import { S3, PutObjectCommand } from "@aws-sdk/client-s3";
-import { File } from "buffer";
 import formidable from 'formidable-serverless';
 import fs from 'fs';
-
-
 
 const s3Client = new S3({
   forcePathStyle: false,

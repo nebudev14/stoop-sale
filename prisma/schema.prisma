@@ -46,6 +46,7 @@ model Invetory {
 
 model Item {
   id         String    @id @default(cuid())
+  name       String    
   price      Price
   desc       String?
   images     String[]

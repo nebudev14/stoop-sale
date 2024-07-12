@@ -1,33 +1,32 @@
-require('dotenv').config()
 
-import prisma from "@/lib/db";
-import { Category, Price } from "@prisma/client";
-import { z } from "zod";
-import { S3, PutObjectCommand } from "@aws-sdk/client-s3";
-import { File } from "buffer";
-import formidable from 'formidable-serverless';
-import fs from 'fs';
-
+import { PrismaClient } from "@prisma/client";
 
 /* API Endpoint for adding a new item to the Stoop Sale inventory. */
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
 
 export default async function handler(req, res) {
-  // const data = await req.formData()
-  const form = new formidable.IncomingForm();
-  // form.uploadDir = "./";
-  // form.keepExtensions = true;
-
-  form.parse(req, async (err, fields, files) => {
-    console.log("dsaf")
-    console.log(fields)
+  const body = req.body;
+  const prisma = new PrismaClient();
+  const count = await prisma.invetory.count();
+  if (count == 0) await prisma.invetory.create({
+    data: {}
   })
-  // console.log(data)
 
-  res.status(200).send({ msg: "hi" })
+  const inventory = await prisma.invetory.findFirst();
+  const data = await prisma.invetory.update({
+    where: { id: inventory.id },
+    data: {
+      items: {
+        create: {
+          name: body.name,
+          desc: body.desc,
+          price: body.price,
+          category: body.category,
+          private: body.blur
+        }
+      }
+    }
+  })
+
+  res.status(200).send({ msg: data })
 }
