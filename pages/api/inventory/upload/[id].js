@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-import { Category, Price } from "@prisma/client";
+import { Category, Price, PrismaClient } from "@prisma/client";
 import { S3, PutObjectCommand } from "@aws-sdk/client-s3";
 import formidable from 'formidable-serverless';
 import fs from 'fs';
@@ -14,6 +14,8 @@ const s3Client = new S3({
     secretAccessKey: process.env.SPACES_SECRET
   }
 })
+
+const prisma = new PrismaClient();
 
 export const config = {
   api: {
@@ -37,8 +39,8 @@ export default async function handler(req, res) {
       })
 
       const res = await s3Client.send(command);
-      Object.keys(files).map(x => fs.unlinkSync(files[x].path))
       console.log(res)
+      Object.keys(files).map(x => fs.unlinkSync(files[x].path))
     })
 
 

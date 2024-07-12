@@ -46,10 +46,10 @@ model Invetory {
 
 model Item {
   id         String    @id @default(cuid())
-  name       String    
+  name       String
   price      Price
   desc       String?
-  images     String[]
+  imageCount Int       @default(0)
   inventory  Invetory? @relation(fields: [invetoryId], references: [id])
   invetoryId String?
   category   Category
