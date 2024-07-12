@@ -60,9 +60,14 @@ const CategorySelect = ({ category, setCategory }) => {
 
 const AddItem = ({ isOpen, setIsOpen }) => {
 
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("SHOES");
-  const [price, setPrice] = useState("LOW")
+  const [price, setPrice] = useState("LOW");
   const [blur, setBlur] = useState(false);
+  const [files, setFiles] = useState([]);
+
+  console.log(name)
 
   return (
     <ModalWrapper isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -83,7 +88,7 @@ const AddItem = ({ isOpen, setIsOpen }) => {
         <div className="flex items-center">
           <div className="flex flex-col mt-3 mr-10">
             <h1 className="mb-4 text-2xl underline font-kyiv">Name <span className="text-red-400">*</span></h1>
-            <input autoComplete="off" className="p-3 border border-gray-300 rounded-lg w-[30rem]" placeholder="Nike Shoes" />
+            <input autoComplete="off" className="p-3 border border-gray-300 rounded-lg w-[30rem]" placeholder="Nike Shoes" onChange={(e) => setName(e.target.value)} />
           </div>
           <div className="flex flex-col mt-3 mr-24">
             <h1 className="mb-4 text-2xl underline font-kyiv">Category <span className="text-red-400">*</span></h1>
@@ -102,7 +107,7 @@ const AddItem = ({ isOpen, setIsOpen }) => {
         </div>
         <div className="mt-4">
           <h1 className="mb-4 text-2xl underline font-kyiv">Description </h1>
-          <textarea autoComplete="off" rows={5} id="desc" placeholder="Red, Size 10. Like the impostor from among us." className="w-full p-3 border border-gray-300 outline-none rounded-xl" />
+          <textarea autoComplete="off" onChange={(e) => setDesc(e.target.value)} rows={5} id="desc" placeholder="Red, Size 10. Like the impostor from among us." className="w-full p-3 border border-gray-300 outline-none rounded-xl" />
         </div>
 
         <div className="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
@@ -113,7 +118,7 @@ const AddItem = ({ isOpen, setIsOpen }) => {
             <div className="flex mt-4 text-sm leading-6 text-gray-600">
               <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-stoop-green focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                 <span>Upload a file</span>
-                <input id="file-upload" name="file-upload" type="file" class="sr-only" />
+                <input id="file-upload" name="file-upload" type="file" class="sr-only" onChange={(e) => setFiles([...files, e.target.files[0]])} />
               </label>
               <p className="pl-1">or drag and drop</p>
             </div>
