@@ -19,9 +19,9 @@ export default function Dashboard() {
       <AddItem isOpen={isOpen} setIsOpen={setIsOpen} />
 
       <Protected>
-        <div className="p-16">
-          <div className="flex items-center">
-            <h1 className="mr-auto text-4xl font-kyiv">Dashboard</h1>
+        <div className="">
+          <div className="flex items-center bg-[#f8f4f3] p-16">
+            <h1 className="mr-auto text-4xl font-kyiv ">Dashboard</h1>
             <MdHome size={30} className="hover:cursor-pointer" onClick={() => router.push("/")} />
             <FaSignOutAlt size={30} className="ml-3 text-red-500 hover:cursor-pointer" onClick={() => {
               signOut();
@@ -33,7 +33,7 @@ export default function Dashboard() {
             </div>
             <div className="flex items-center w-full p-12 font-kyiv">
               <h1 className="mr-auto text-xl">Items (0)</h1>
-              <button className="px-2 py-1 ml-auto text-white rounded-lg bg-stoop-green" onClick={() => setIsOpen(true)}>Add</button>
+              <button className="px-2 py-1 ml-auto text-white rounded-lg outline-none bg-stoop-green" onClick={() => setIsOpen(true)}>Add</button>
             </div>
           </div>
         </div>
