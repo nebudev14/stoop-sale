@@ -59,7 +59,7 @@ export default function Home() {
       className={` min-h-screen flex-col justify-between p-16 ${inter.className}`}
     >
         <div className="grid justify-center my-10">
-          <button className="px-12 py-2 text-6xl text-white rounded-md bg-stoop-green font-old hover:bg-[#9BAC97] hover:ring-green-900 mb-2">RSVP</button>
+          <button className="px-12 py-2 text-6xl text-white rounded-3xl bg-stoop-green font-old hover:bg-[#9BAC97] hover:ring-green-900 mb-2">RSVP</button>
           <span>&#128205; Carroll Gardens (Court Street & 2nd Pl, Brooklyn)</span>
           <span>&#128198; July 29, 2024 @ 12 P.M.</span>
         </div>
