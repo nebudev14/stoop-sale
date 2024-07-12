@@ -2,6 +2,7 @@ import ModalWrapper from "../ModalWrapper";
 import React, { Fragment, useState } from "react";
 import { Listbox, Transition, Switch } from '@headlessui/react'
 import { Category, Price } from "@prisma/client";
+import axios from "axios";
 
 const CategorySelect = ({ category, setCategory }) => {
   return (
@@ -67,7 +68,9 @@ const AddItem = ({ isOpen, setIsOpen }) => {
   const [blur, setBlur] = useState(false);
   const [files, setFiles] = useState([]);
 
-  console.log(name)
+  // const formdata = new FormData();
+
+  console.log(files)
 
   return (
     <ModalWrapper isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -118,7 +121,9 @@ const AddItem = ({ isOpen, setIsOpen }) => {
             <div className="flex mt-4 text-sm leading-6 text-gray-600">
               <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-stoop-green focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                 <span>Upload a file</span>
-                <input id="file-upload" name="file-upload" type="file" class="sr-only" onChange={(e) => setFiles([...files, e.target.files[0]])} />
+                <input id="file-upload" name="file-upload" type="file" class="sr-only" onChange={async (e) => {
+                  setFiles([...files, e.target.files[0]])
+                }} />
               </label>
               <p className="pl-1">or drag and drop</p>
             </div>
@@ -138,7 +143,31 @@ const AddItem = ({ isOpen, setIsOpen }) => {
             />
           </Switch>
           <h1 className="mr-auto text-xl font-kyiv">Blur?</h1>
-          <button className="px-2 py-1 text-white font-kyiv rounded-xl bg-stoop-green">Add</button>
+          <button onClick={async () => {
+            const formData = new FormData();
+            files.forEach((file, i) => {
+              formData.append(`Image ${i}`, file)
+            });
+
+            formData.append("data", JSON.stringify({
+              name: name,
+              desc: desc,
+              blur: blur,
+              category: category,
+              price: price,
+              files: files
+            }))
+
+            await axios({
+              method: "post",
+              data: formData,
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              },
+              url: "http://localhost:3000/api/inventory"
+            })
+
+          }} className="px-2 py-1 text-white font-kyiv rounded-xl bg-stoop-green">Add</button>
         </div>
       </div>
 
