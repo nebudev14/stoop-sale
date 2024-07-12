@@ -4,11 +4,14 @@ import Navbar from "@/components/Navbar";
 import Catalog from "@/components/Catalog";
 import EnvScroll from "@/components/EnvScroll";
 import { motion, Varients, useScroll, useTransform } from "framer-motion";
+import { PrismaClient } from "@prisma/client";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home(props) {
+  const { inventory } = props;
+  console.log(inventory)
   return (
     <>
       <div className="relative w-screen h-screen md:h-screen center-text">
@@ -78,11 +81,29 @@ export default function Home() {
         className={` min-h-screen flex-col justify-between p-16 ${inter.className}`}
       >
 
-
-
         <Navbar className="flex items-center" />
-        <Catalog />
+        <Catalog items={inventory.items} />
       </main>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const prisma = new PrismaClient();
+
+  const inventory = await prisma.invetory.findFirst({
+    include: {
+      items: true
+    }
+  });
+
+  await prisma.$disconnect();
+
+
+  return {
+    props: {
+      inventory: inventory
+    }
+  }
+
 }
