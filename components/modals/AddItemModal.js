@@ -149,23 +149,20 @@ const AddItem = ({ isOpen, setIsOpen }) => {
               formData.append(`Image ${i}`, file)
             });
 
-            formData.append("data", JSON.stringify({
+            formData.append("data", {
               name: name,
               desc: desc,
               blur: blur,
               category: category,
               price: price,
-              files: files
-            }))
-
-            await axios({
-              method: "post",
-              data: formData,
-              headers: {
-                'Content-Type': 'multipart/form-data'
-              },
-              url: "http://localhost:3000/api/inventory"
             })
+
+            const data = await fetch(`/api/inventory/upload/${name}`, {
+              method: "POST",
+              body: formData,
+            })
+
+            console.log(await data.json())
 
           }} className="px-2 py-1 text-white font-kyiv rounded-xl bg-stoop-green">Add</button>
         </div>
