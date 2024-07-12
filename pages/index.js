@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Catalog from "@/components/Catalog";
 import EnvScroll from "@/components/EnvScroll";
-import { motion, Varients } from "framer-motion"
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -13,13 +12,14 @@ export default function Home() {
     <main
       className={`min-h-screen flex-col justify-between p-16 ${inter.className}`}
     >
-      <div>
-        <video className="w-screen h-screen" autoPlay muted loop>
+      <div className="relative -z-150">
+        <video className="w-screen h-screen -z-500" autoPlay muted loop>
           <source src="http://localhost:3000/stoop-sale-landing.mp4" type="video/mp4" />
         </video>
+      </div>
 
         <EnvScroll />
-      </div>
+
      
 
       <div className="justify-center grid my-10">

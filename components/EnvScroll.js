@@ -13,7 +13,7 @@ const EnvScroll = () => {
                     bounce: 0.4,
                     duration: 0.8
                 },
-                viewport: {margin: "some"}
+                viewport: {margin: "400px"}
             }
             }
             
