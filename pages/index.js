@@ -71,7 +71,7 @@ export default function Home(props) {
       <div className="relative w-screen h-screen md:h-screen center-text">
         <div className="absolute -z-150">
           <video className="object-fill w-screen h-screen md:object-cover" autoPlay muted loop>
-            <source src="http://localhost:3000/stoop-sale-landing.mp4" className="w-screen" type="video/mp4" />
+            <source src="https://stoop-sale-plum.vercel.app/stoop-sale-landing.mp4" className="w-screen" type="video/mp4" />
           </video>
         </div>
         <div className="absolute -z-100">

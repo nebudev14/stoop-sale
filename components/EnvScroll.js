@@ -5,7 +5,7 @@ const EnvScroll = () => {
 
     return(
        <>
-        <motion.img className="w-8/12 h-8/12 md:w-full md:h-full md:mt-72" src={`http://localhost:3000/env%203.png`}
+        <motion.img className="w-8/12 h-8/12 md:w-full md:h-full md:mt-72" src={`https://stoop-sale-plum.vercel.app/env%203.png`}
             animate={{y: -10, rotate: 0}}
             initial={{scale: 1, y:20, rotate:45}}
             whileScroll={{y:20}}
