@@ -16,6 +16,9 @@ export default function Home() {
         <source src="./public/stoop-sale-landing.mp4" type="video/mp4" />
         <source src="./public/stoop-salelanding.webm" type="video/webm" />
       </video>
+
+      <button className="px-12 py-2 text-6xl text-white rounded-md bg-stoop-green font-old hover:bg-[#9BAC97] hover:ring-green-900 ml-auto">RSVP</button>
+
       <Navbar className="flex items-center"/>
       <Catalog />
     </main>
