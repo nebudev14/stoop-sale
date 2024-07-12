@@ -37,10 +37,10 @@ export default function Home(props) {
               },
             }
             }>
-            <motion.span className="relative text-white font-miama text-8xl md:text-6xl ">Chelsea & Lil</motion.span>
+            <motion.span className="relative text-white font-miama text-8xl md:text-6xl">Chelsea & Lil</motion.span>
           </motion.span>
-          <motion.h4 className="ml-auto mr-0 text-3xl text-white -rotate-2">invite you to their</motion.h4>
-          <motion.h4 className="mt-28 asbolute ml-72 font-miama text-9xl md:text-6xl md:ml-24 md:mt-52 -rotate-6 "
+          <motion.h4 className="ml-auto mr-0 text-3xl sm:text-black text-white -rotate-2">invite you to their</motion.h4>
+          <motion.h4 className="xs:ml-0 sm:mt-0 mt-28 absolute ml-72 font-miama text-9xl md:text-8xl md:ml-24 -rotate-6 "
             animate={{ y: 0, x: 0, scale: 1, rotate: -8 }}
             initial={{ scale: 4, y: -400, x: 400, rotate: -2 }}
             whileInView={{
@@ -53,7 +53,7 @@ export default function Home(props) {
             }
             }
           >Stoop Sale</motion.h4>
-          <motion.div className="grid justify-center my-10 mt-24 mr-72 -rotate-12" animate={{ y: 0, x: 0, scale: 1, rotate: -8 }}
+          <motion.div className="grid justify-center my-10 mt-72 mr-72 -rotate-12 xs:mt-32 xs:ml-36 sm:mt-40 sm:ml-56 md:ml-64" animate={{ y: 0, x: 0, scale: 1, rotate: -8 }}
             initial={{ scale: 4, y: -400, x: 400, rotate: -2 }}
             whileInView={{
               transition: {
