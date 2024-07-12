@@ -23,13 +23,11 @@ const Catalog = ({ items }) => {
         {items.map((item, i) => (
           <div className="catalog-boxes" onClick="">
             <img src={`https://stoop.nyc3.digitaloceanspaces.com/${item.name}/${0}`}
-            
+
               className="object-fill " />
           </div>
         ))}
-
-
-
+       <div className="catalog-boxes" onClick="" />
       </div>
     </div>
   );

@@ -8,14 +8,14 @@ const MapsPage=() => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black bg-opacity-25">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-md w-full">
+      <div className="w-full max-w-md overflow-hidden bg-white rounded-lg shadow-lg">
         <GoogleMapComponent />
         <div className="p-4">
-          <h1 className="text-xl font-bold mb-2 underline font-kyiv">Chelsea & Lil's Stoop Sale</h1>
-          <p className="text-gray-600 mb-2">
+          <h1 className="mb-2 text-xl font-bold underline font-kyiv">Chelsea & Lil's Stoop Sale</h1>
+          <p className="mb-2 text-gray-600">
             <span className="inline-block mr-1">📍</span>
             Court Street & 2nd Pl, Brooklyn</p><br/>
-          <p className="text-black mb-4">Accessible by:</p>
+          <p className="mb-4 text-black">Accessible by:</p>
           <br/><br/><br></br>
           <button
             className="text-blue-500 hover:underline"
