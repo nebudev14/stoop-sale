@@ -14,7 +14,8 @@ const EnvScroll = () => {
                 transition: {
                     type: "spring",
                     bounce: 0.4,
-                    duration: 0.8
+                    duration: 0.8,
+                    delay: 0.5
                 },
                 viewport: {margin: "400px"}
             }

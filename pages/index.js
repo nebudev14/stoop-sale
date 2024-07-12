@@ -37,7 +37,19 @@ export default function Home() {
             <motion.span className="relative text-white font-miama text-8xl   ">Chelsea & Lil</motion.span>
           </motion.span>
           <motion.h4 className="text-3xl text-white ml-auto mr-0 -rotate-2">invite you to their</motion.h4>
-          <motion.h4 className="asbolute mt-44 ml-72 font-miama text-9xl -rotate-6 ">Stoop Sale</motion.h4>
+          <motion.h4 className="asbolute mt-44 ml-72 font-miama text-9xl -rotate-6 "
+                    animate={{y: 0, x: 0, scale: 1, rotate:-8}}
+                    initial={{scale: 4, y:-400, x:400, rotate:-2}}
+                    whileInView={{
+                        transition: {
+                            type: "stiffness",
+                            bounce: 0.4,
+                            duration: 0.8,
+                            delay: 0.2
+                        },
+                    }
+                  }
+          >Stoop Sale</motion.h4>
         </div>
 
       </div>
@@ -49,6 +61,7 @@ export default function Home() {
         <div className="grid justify-center my-10">
           <button className="px-12 py-2 text-6xl text-white rounded-md bg-stoop-green font-old hover:bg-[#9BAC97] hover:ring-green-900 mb-2">RSVP</button>
           <span>&#128205; Carroll Gardens (Court Street & 2nd Pl, Brooklyn)</span>
+          <span>&#128198; July 29, 2024 @ 12 P.M.</span>
         </div>
 
 
