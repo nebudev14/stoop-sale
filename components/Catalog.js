@@ -6,15 +6,12 @@ const Catalog=() => {
         /* filters clothes, home goods, shoes, tchotchkes*/
        
         <div className="mt-10">
-            <div className="flex no-underline item-center text-stoop-brown md:flex-col">
+            <div className="flex no-underline item-center text-stoop-brown md:flex-col px-[6rem]">
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">All</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Clothing</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Home Goods</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Shoes</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Tchotchkes</button>
-                <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]"
-                onClick={()=>router.push("/mapsPage")}>maps page</button>
-                <text className="px-4 py-2 ml-auto text-black rounded-full bg-slate-300">Filters</text>
             </div>
 
             <div className="flex justify-center grid-rows-4 mt-10 gap-x-24">
