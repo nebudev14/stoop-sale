@@ -3,16 +3,16 @@ const Catalog = () => {
         /* filters clothes, home goods, shoes, tchotchkes*/
        
         <div className="mt-10">
-            <div className="flex item-center text-stoop-brown no-underline">
+            <div className="flex no-underline item-center text-stoop-brown md:flex-col">
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">All</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Clothing</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Home Goods</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Shoes</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Tchotchkes</button>
-                <text className="ml-auto text-black bg-slate-300 px-4 py-2 rounded-full">Filters</text>
+                <text className="px-4 py-2 ml-auto text-black rounded-full bg-slate-300">Filters</text>
             </div>
 
-            <div className="flex grid-rows-4 gap-x-24 mt-10 justify-center">
+            <div className="flex justify-center grid-rows-4 mt-10 gap-x-24">
                 <div className="catalog-boxes" onClick="">
                     <img></img>
                 </div>
