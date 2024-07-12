@@ -1,4 +1,7 @@
-const Catalog = () => {
+import {useRouter} from "next/router"
+
+const Catalog=() => {
+    const router=useRouter();
     return (
         /* filters clothes, home goods, shoes, tchotchkes*/
        
@@ -9,6 +12,8 @@ const Catalog = () => {
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Home Goods</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Shoes</button>
                 <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]">Tchotchkes</button>
+                <button className="mr-10  focus:text-stoop-green focus:underline focus:font-semibold hover:text-[#9BB595]"
+                onClick={()=>router.push("/mapsPage")}>maps page</button>
                 <text className="px-4 py-2 ml-auto text-black rounded-full bg-slate-300">Filters</text>
             </div>
 
