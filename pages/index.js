@@ -72,11 +72,7 @@ export default function Home(props) {
           </motion.div>
 
         </div>
-
-
       </div>
-
-
       <main
         className={` min-h-screen flex-col justify-between p-16 ${inter.className}`}
       >
