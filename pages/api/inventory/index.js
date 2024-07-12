@@ -18,6 +18,9 @@ const s3Client = new S3({
   }
 })
 
-export default function handler(req, res) {
-  
+export default async function handler(req, res) {
+  // const data = await req.formData()
+  console.log(req.data)
+
+  res.status(200).send({ msg: "hi" })
 }
