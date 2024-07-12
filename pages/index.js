@@ -11,18 +11,18 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <>
-      <div className="relative center-text w-screen h-screen">
+      <div className="relative w-screen h-screen md:h-screen center-text">
         <div className="absolute -z-150">
-            <video className="object-fill w-screen h-screen" autoPlay muted loop>
+            <video className="object-fill w-screen h-screen md:object-cover" autoPlay muted loop>
               <source src="http://localhost:3000/stoop-sale-landing.mp4" className="w-screen" type="video/mp4" />
             </video>
         </div>
         <div className="absolute -z-100">
           <EnvScroll number={"1"}/>
         </div>
-        <div className="relative -z-120 p-16">
+        <div className="relative p-16 -z-120 md:p-12">
 
-          <motion.span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-stoop-green relative inline-block mt-16"
+          <motion.span className="relative inline-block mt-16 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-stoop-green"
                         animate={{y: -10, x: 0}}
                         initial={{scale: 1, y:-400, x:-20}}
                         whileInView={{
@@ -34,10 +34,10 @@ export default function Home() {
                             },
                         }
             }>
-            <motion.span className="relative text-white font-miama text-8xl   ">Chelsea & Lil</motion.span>
+            <motion.span className="relative text-white font-miama text-8xl md:text-6xl ">Chelsea & Lil</motion.span>
           </motion.span>
-          <motion.h4 className="text-3xl text-white ml-auto mr-0 -rotate-2">invite you to their</motion.h4>
-          <motion.h4 className="asbolute mt-44 ml-72 font-miama text-9xl -rotate-6 "
+          <motion.h4 className="ml-auto mr-0 text-3xl text-white -rotate-2">invite you to their</motion.h4>
+          <motion.h4 className="asbolute mt-44 ml-72 font-miama text-9xl md:text-6xl md:ml-24 md:mt-52 -rotate-6 "
                     animate={{y: 0, x: 0, scale: 1, rotate:-8}}
                     initial={{scale: 4, y:-400, x:400, rotate:-2}}
                     whileInView={{
