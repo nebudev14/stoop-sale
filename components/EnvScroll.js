@@ -24,7 +24,7 @@ const EnvScroll = () => {
   return (
     <>
       <motion.img
-        className="w-9/12 h-9/12 md:w-full md:h-full md:mt-72"
+        className="xs:mt-20 w-9/12 h-9/12 md:w-full md:h-full"
         src={`${process.env.NEXT_PUBLIC_URL}/${currentImage}`}
         animate={{ y: -10, rotate: 0 }}
         initial={{ scale: 1, y: 20, rotate: 45 }}
