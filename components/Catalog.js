@@ -12,7 +12,7 @@ const Catalog = () => {
                 <text className="px-4 py-2 ml-auto text-black rounded-full bg-slate-300">Filters</text>
             </div>
 
-            <div className="flex justify-center grid-rows-4 mt-10 gap-x-24">
+            <div className="flex justify-center grid-columns-4 mt-10 gap-x-24 md:grid-columns-2 md:grid-rows-4">
                 <div className="catalog-boxes" onClick="">
                     <img></img>
                 </div>
