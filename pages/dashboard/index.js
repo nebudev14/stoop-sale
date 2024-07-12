@@ -14,10 +14,8 @@ export default function Dashboard() {
 
   return (
     <div
-      className="flex-col justify-between min-h-screen p-16"
+      className="flex-col justify-between min-h-screen"
     >
-      <Navbar />
-
       <AddItem isOpen={isOpen} setIsOpen={setIsOpen} />
 
       <Protected>
