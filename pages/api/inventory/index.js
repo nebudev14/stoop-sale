@@ -1,26 +1,32 @@
-require('dotenv').config()
 
-import prisma from "@/lib/db";
-import { Category, Price } from "@prisma/client";
-import { z } from "zod";
-import { S3, PutObjectCommand } from "@aws-sdk/client-s3";
-import { File } from "buffer";
+import { PrismaClient } from "@prisma/client";
 
 /* API Endpoint for adding a new item to the Stoop Sale inventory. */
 
-const s3Client = new S3({
-  forcePathStyle: false,
-  endpoint: process.env.SPACES_ENDPOINT,
-  region: "nyc3",
-  credentials: {
-    accessKeyId: process.env.SPACES_KEY,
-    secretAccessKey: process.env.SPACES_SECRET
-  }
-})
 
 export default async function handler(req, res) {
-  // const data = await req.formData()
-  console.log(req.data)
+  const body = req.body;
+  const prisma = new PrismaClient();
+  const count = await prisma.invetory.count();
+  if (count == 0) await prisma.invetory.create({
+    data: {}
+  })
 
-  res.status(200).send({ msg: "hi" })
+  const inventory = await prisma.invetory.findFirst();
+  const data = await prisma.invetory.update({
+    where: { id: inventory.id },
+    data: {
+      items: {
+        create: {
+          name: body.name,
+          desc: body.desc,
+          price: body.price,
+          category: body.category,
+          private: body.blur
+        }
+      }
+    }
+  })
+
+  res.status(200).send({ msg: data })
 }

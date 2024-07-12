@@ -149,29 +149,44 @@ const AddItem = ({ isOpen, setIsOpen }) => {
               formData.append(`Image ${i}`, file)
             });
 
-            formData.append("data", JSON.stringify({
-              name: name,
-              desc: desc,
-              blur: blur,
-              category: category,
-              price: price,
-              files: files
-            }))
+            /* Send request to inventory data endpoint */
 
-            await axios({
+
+            await fetch(`/api/inventory/`, {
               method: "post",
-              data: formData,
               headers: {
-                'Content-Type': 'multipart/form-data'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
               },
-              url: "http://localhost:3000/api/inventory"
+              body: JSON.stringify({
+                name: name,
+                desc: desc,
+                blur: blur,
+                category: category,
+                price: price,
+              }),
             })
+            /* Send request to image upload endpoint */
+
+            await fetch(`/api/inventory/upload/${name}`, {
+              method: "POST",
+              body: formData,
+            })
+
+            /* Clear Form */
+            setIsOpen(false);
+            setName("")
+            setDesc("")
+            setBlur(false)
+            setCategory("SHOES")
+            setPrice("LOW")
+
 
           }} className="px-2 py-1 text-white font-kyiv rounded-xl bg-stoop-green">Add</button>
         </div>
       </div>
 
-    </ModalWrapper>
+    </ModalWrapper >
   );
 }
 
